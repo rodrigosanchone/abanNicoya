@@ -1,0 +1,18 @@
+<div class="clearfix" id="services">
+</div>
+
+<section class="center mt-5">
+ 
+  <h2 class="title-center">Galería</h2>
+  <div class="services" >
+    
+      <div class="service" *ngFor="let imagen of imagenes, let i=index" >
+            <div class="img-service">
+              <img [src]="imagen.img" [alt]="imagen.nombre" loading="lazy"/>
+            </div>   
+            <h3 class="title-center">{{imagen.nombre}}</h3>   
+           
+      </div>   
+
+  </div>
+</section>

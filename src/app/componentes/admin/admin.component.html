@@ -1,0 +1,197 @@
+
+<div class="clearfix"></div>
+<div class="center admin mt-5" >
+<!--   <button type="btn-primary" class="btn btn-primary m-5" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+    Crear nueva actividad
+  </button>
+  <button type="button" class="btn btn-danger m-5"(click)="logOut()">
+    Salir
+  </button> -->
+
+  <div class="btn-group center" role="group" aria-label="Basic mixed styles example">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear nueva actividad</button>
+    <button type="button" class="btn btn-warning" routerLink="/crear-noticia">Noticias</button>
+    <button type="button" class="btn btn-success"  routerLink="/agregar-imagen">Album</button>
+    <button type="button" class="btn btn-danger" (click)="logOut()" >Salir</button>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+    <form class="formulario" #agregarformulario="ngForm" (ngSubmit)="agregarActividad(agregarformulario)">
+      <h2>Agregar datos</h2>
+      
+    <fieldset>
+      <div>
+        <label for="actividad" >Actividad</label>
+       
+        <input type="text" 
+        name="nombre"
+        #nombre="ngModel"
+        [(ngModel)]="actividad.nombre"
+        [ngClass]=" { 'is-invalid': nombre.errors && nombre.touched} " required>
+        <div [hidden]="!nombre.errors?.required " class="invalid-feedback ">
+          Nombre Requerido
+        </div>
+      </div>  
+
+      <div>
+        <label for="fecha" name="fecha">Fecha</label>
+        <input type="date" 
+        name="fecha"
+        #fecha="ngModel"
+        [(ngModel)]="actividad.fecha"
+        [ngClass]=" { 'is-invalid': fecha.errors && fecha.touched} " require>
+        <div [hidden]="!fecha.errors?.required " class="invalid-feedback ">
+          Fecha requerida
+        </div>
+      </div>  
+      <div>
+        <label for="lugar" name="lugar">Lugar</label>
+        <input type="text" 
+        name="lugar"
+        #lugar="ngModel"
+        [(ngModel)]="actividad.lugar"
+        [ngClass]=" { 'is-invalid': lugar.errors && lugar.touched} " required
+        >
+        <div [hidden]="!lugar.errors?.required " class="invalid-feedback ">
+          Nombre Requerido
+      </div>
+      
+      </div> 
+    </fieldset>
+    <div class="modal-footer">
+      <button type="submit" class="btn-primary" data-dismiss="modal"> Guardar
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-floppy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2" />
+          <circle cx="12" cy="14" r="2" />
+          <polyline points="14 4 14 8 8 8 8 4" />
+        </svg>
+      </button>
+    </div>
+     </form>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+    <div class="board mt-5 admin" *ngFor="let actividad of actividades, let i=index" > 
+      <div class="info-admin">
+          <h2>{{actividad.nombre}}</h2>
+         <div class="date">
+          <p>Fecha:</p>
+          <p class="intro">{{actividad.fecha|date}}</p>
+         </div>
+         <div class="place">
+          <p>Lugar:</p>
+          <p class="intro">{{actividad.lugar}}</p>
+         </div> 
+      </div>  
+      <div class="accion">
+        <button (click)="eliminar(actividad.id)" class="btn-danger" data-dismiss="modal"> eliminar
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <line x1="4" y1="7" x2="20" y2="7" />
+            <line x1="10" y1="11" x2="10" y2="17" />
+            <line x1="14" y1="11" x2="14" y2="17" />
+            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+          </svg>
+       </button>
+       <button routerLink="/actividad/editar/{{actividad.id}}" class="btn-primary"> EDITAR
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eraser" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M19 19h-11l-4 -4a1 1 0 0 1 0 -1.41l10 -10a1 1 0 0 1 1.41 0l5 5a1 1 0 0 1 0 1.41l-9 9" />
+          <line x1="18" y1="12.3" x2="11.7" y2="6" />
+        </svg>
+      </button>
+      </div> 
+        
+      
+   
+  
+   
+   
+    <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+      
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="editar center">
+                  <flash-messages></flash-messages>
+                    <form class="formulario" #agregarForm="ngForm" (ngSubmit)="agregarActividad(agregarForm)">
+                        <h2>Agregar datos</h2>
+                        
+                      <fieldset>
+                        <div>
+                          <label for="actividad" >Actividad</label>
+                          <input type="text" 
+                          class="form-control"
+                          #nombre="ngModel"
+                          [(ngModel)]="actividad.nombre"
+                          name="nombre"
+                          id="nombre"
+                          [ngClass]=" { 'is-invalid': nombre.errors && nombre.touched} " required 
+                          >
+                        < <div [hidden]="!nombre.errors?.required " class="invalid-feedback ">
+                          Nombre Requerido
+                      </div>
+                        </div>  
+                         <div>
+                          <label for="fecha" name="fecha">Fecha</label>
+                          <input type="date" 
+                          #fecha="ngModel"
+                          [(ngModel)]="actividad.fecha"  minlength="4"
+                          [ngClass]=" { 'is-invalid': fecha.errors && fecha.touched}">
+                          <div [hidden]="!fecha.errors?.required " class="invalid-feedback ">
+                            Fecha Requirida
+                        </div>
+                        
+                        </div> 
+                        <div>
+                          <label for="lugar" name="lugar">Lugar</label>
+                          <input type="text" 
+                          required
+                          #lugar="ngModel"
+                          [(ngModel)]="actividad.lugar"
+                          [ngClass]=" { 'is-invalid': lugar.errors && lugar.touched}">
+                          <div [hidden]="!lugar.errors?.required " class="invalid-feedback ">
+                            Fecha Requirida
+                          </div>
+                        
+                        </div> 
+                      </fieldset>
+                      <div class="modal-footer">
+                        <button type="submit" class="btn-primary" data-dismiss="modal"> Guardar
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-floppy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2" />
+                            <circle cx="12" cy="14" r="2" />
+                            <polyline points="14 4 14 8 8 8 8 4" />
+                          </svg>
+                        </button>
+                       
+                      </div>
+                    </form>
+                </div>
+            </div>
+         
+          </div>
+        </div>
+    </div>
+
+ 
+
+</div>
+ 

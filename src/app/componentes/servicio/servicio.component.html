@@ -1,0 +1,30 @@
+<div class="clearfix" >
+</div>
+
+     <section class="center">
+        <h2 class="title-center">{{servicio.nombre}}</h2>
+     
+          
+            <div class="card-service"  >
+                  <div class="card-img-service">
+                    <img [src]="servicio.img" alt="servicio.nombre" loading="lazy"/>
+                  </div> 
+                  <div >
+                    <p>{{servicio.info}}</p>  
+                    <div class="btn-group">
+                      <a href="https://api.whatsapp.com/send?phone={{servicio.whassapt}}" target="_blank" class="btn btn-success" *ngIf="servicio.whassapt">
+                        Whatsapp
+                      </a>  
+                      <a href="https://www.facebook.com/{{servicio.facebook}}/"  target="_blank" class="btn btn-primary" *ngIf="servicio.facebook">
+                       Facebook
+                      </a>
+                      <a class="btn btn-warning" routerLink="/">
+                       Regresar
+                      </a>
+                    </div>
+                  </div>  
+                 
+            </div>
+            
+      
+     </section>

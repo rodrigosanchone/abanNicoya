@@ -1,0 +1,28 @@
+<div class="clearfix" >
+</div>
+
+     <section class="center">
+        <h2 class="title-center">{{noticia.nombre}}</h2>
+     
+          
+            <div class="card-service"  >
+                  <div class="card-img-service">
+                    <img [src]="noticia.img" alt="servicio.nombre" loading="lazy"/>
+                  </div> 
+                  <div>
+                    <p>{{noticia.info}}</p>  
+                    <div class="btn-group">
+                      <a href="https://api.whatsapp.com/send?phone=50660167728." target="_blank" class="btn btn-success">
+                        Escribenos
+                      </a>  
+                      <a class="btn btn-warning" routerLink="/">
+                        Regresar
+                       </a>
+                    </div>
+                  </div>  
+                  
+            </div>
+            
+      
+     </section>
+

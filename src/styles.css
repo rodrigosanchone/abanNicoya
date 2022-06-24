@@ -1,1 +1,279 @@
-/* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+:root{--blue:#B0E0E6;--delgada:300;--regular:400;--bold:700;--black:900;--fuente_principal:'Lato',sans-serif}.center
+{width:80%;margin:0 auto;justify-content:center}h1{font-size:3rem!important;color:#000}
+body{font-family:var(--fuente_principal)}
+a{text-decoration:none!important;color:#000}
+h2{font-size:2.5rem}
+.clearfix{height:7rem}
+header{width:100%;height:auto;background-color:var(--blue);position:fixed;top:0;  z-index: 1;}
+header a h1{
+    text-transform: uppercase;
+}
+
+.btn-bg{
+    width: 18%;
+    margin: 0 41%;
+}
+
+@media(max-width:768px){
+    .btn-bg{
+        width: 100%;
+       margin: 0;
+    }
+    
+  
+}
+
+.contenedor-boton{
+    width: 100%;
+}
+.movil-menu{display:flex;flex-direction:column;align-items:flex-start;margin:auto;cursor:pointer;width:7.5%;border-radius:10rem;background-color:#fff; font-size: 0.1rem;text-align: center;}
+.movil-menu:hover{background-color:gray}
+.navegacion{visibility:visible;height:10px;left:-2000px;position:relative}
+.set{height:auto;transition:all .8s ease;left:0}.hiden{height:auto;transition:all .8s ease;left:-2000}
+header .navegacion a{display:flex;flex-direction:column;color:var(--black);font-size:1.5rem;margin:10px}
+.center-footer,.center-header{display:flex;flex-direction:column;text-align:center;align-items:center}
+footer{background-color:var(--blue);padding:2rem;height:120px;margin-top:20px;text-align: center;}
+
+
+.aboutUs-img{
+    width: 100%;
+}
+.aboutUs-img img{
+    margin-top: 1rem;
+    width: 100%;
+    height: 50vh;
+}
+
+.aboutUs{display:grid; grid-template-columns: 40% 60%;}
+
+.title-center{
+    text-align: center;
+}
+.info{
+    text-align: justify;
+}
+.imagen{width: 100%;}     
+.imagen img{
+    width: 75%;
+    margin: auto 10%;
+    height: auto;
+ }
+
+@media(max-width:768px){
+    .aboutUs{display:flex; flex-direction: column;}
+}
+
+.services{
+    display: flex;
+    flex-direction: column;
+}
+
+.service{
+  display: flex;
+  flex-direction: column;
+}
+.img-service{
+    width: 100%;
+}
+
+.img-service img{
+    width: 100%;
+    height: 40vh;
+}
+
+.service h3{
+    text-align: center;
+    text-transform: uppercase;
+
+}
+
+.btn-group a{
+    color: grid;
+}
+
+@media(min-width:768px){
+    .services{display:grid; grid-template-columns: repeat(3,1fr);}
+    .img-service img{
+        height: 400px;
+        width: 90%;
+        
+    }
+
+    .service h3{
+      font-size: 1.3rem;
+      text-align: center;
+      margin-right: 1.2rem;
+    }
+
+    .img-service{
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+.board{background-image:url(assets/img/pizarra.webp);background-position:center;background-size:cover;background-repeat:no-repeat;height:auto}
+.info-board{display:flex;flex-direction:column; color: #e4e6e7e1;text-align: center; padding: 1rem  0; font-size: 2.5rem;}
+
+@media(max-width:768px){
+
+    .board{
+
+    
+    margin-top: -7rem;}
+    .info-board{
+        font-size: 2rem;}
+}
+
+.board-admin{background-image:url(assets/img/pizarra.webp);background-position:center;background-size:cover;background-repeat:no-repeat;height:auto;display:flex;flex-direction:column}
+
+
+
+.formulario div{display:flex;flex-direction:column}
+.formulario legend{font-size:2rem;font-weight:700}
+.formulario label{margin:1rem 0}
+.formulario textarea{min-height:400px;max-height:400px}::-webkit-input-placeholder{color:var(--grisOscuro)}:-moz-placeholder{color:var(--negro)}::-moz-placeholder{color:var(--negro)}:-ms-input-placeholder{color:var(--negro)}
+.formulario div input,.formulario div textarea{border:1px solid #337dff;padding:1rem .5rem}
+
+
+.login{
+    height: 680px;
+}
+
+.admin{
+    text-align: center;
+}
+
+.info-admin{
+    color: #fff;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.editar{
+    height: 700px;
+}
+
+.redes-sociales a svg{
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+   margin: 0 0.5rem;
+}
+
+
+
+
+/* .img-caro{
+    background-image: url(assets/img/carousel-1.png);
+    
+} */
+
+.carousel-item  h5{
+     font-size: 2.5rem;
+     color: #fff;
+     
+}
+
+.carousel img{
+  height: autovh;
+}
+
+
+
+.carousel-caption{
+    background-color: #000!important; opacity: 0.8!important;
+    padding:0;
+   
+}
+
+
+
+.carousel-control-prev-icon{
+    background-color: black!important;
+    border-radius: 60%;;
+    height: 250px;
+    color: #000!important;
+}
+
+.carousel-control-next-icon{
+    background-color: black!important;
+    border-radius: 60%;;
+    height: 250px;
+    color: #000!important;
+}
+
+@media(max-width:700px){
+    
+    .carousel img{
+        height: 50vh;
+      }
+
+      .carousel-caption h5{
+        font-size: 1rem;
+    }
+
+    
+    
+}
+
+.justify{
+    text-align: justify;
+}
+
+.height{
+    height: 850px;
+}
+
+.card-service{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.card-service .card-service-img{
+    width: 100%;
+}
+
+.card-img-service img{
+    height: 90vh;
+    width: 100%;
+}
+
+.card-service p{
+    font-size: 1.5rem;
+    margin-top: 10rem;
+    text-align: justify;
+    margin-left: 2rem;
+}
+
+.card-service a{
+    margin-left: 2rem;
+}
+
+@media(max-width:768px){
+    .card-service{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-img-service img{
+        height: auto;
+    }
+
+    .card-service p{
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        margin-left: 0;
+        text-align: justify;
+    }
+
+    .card-service a{
+        margin-left: 0rem;
+    }
+
+   
+}
+
+
+
+
+
+

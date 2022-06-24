@@ -1,0 +1,53 @@
+
+<div class="clearfix"></div>
+
+<div class="editar center mt-5">
+
+  <!-- Button trigger modal -->
+
+ 
+    <form class="formulario" #editarformulario="ngForm"  (ngSubmit)="editarActividad(editarformulario)">
+      <h2>Editar datos</h2>
+    <fieldset>
+      <div>
+        <label for="actividad" >Actividad</label>
+        <input type="text" 
+        name="nombre"
+        #nombre="ngModel"
+        [(ngModel)]="actividad.nombre"
+        >
+       
+      </div>  
+      <div>
+        <label for="fecha" >Fecha</label>
+        <input type="date" 
+        name="fecha"
+        #fecha="ngModel"
+        [(ngModel)]="actividad.fecha">
+       
+      
+      </div>  
+      <div>
+        <label for="lugar" name="lugar">Lugar</label>
+        <input type="text" 
+        name="lugar"
+        #lugar="ngModel"
+        [(ngModel)]="actividad.lugar">
+      
+      </div> 
+    </fieldset>
+    <div class="modal-footer">
+      <button type="submit" class="btn-primary" data-dismiss="modal"> Guardar
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-floppy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2" />
+          <circle cx="12" cy="14" r="2" />
+          <polyline points="14 4 14 8 8 8 8 4" />
+        </svg>
+      </button>
+    </div>
+  </form>
+   </div>
+ 
+
+

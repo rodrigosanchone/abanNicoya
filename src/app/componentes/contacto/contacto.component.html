@@ -1,0 +1,49 @@
+<div class="clearfix" id="contact">
+</div>
+
+<div class="center contact">
+    <h2 class="title-center">Quiere solicitar campaña de castración en su comunidad</h2>
+    <form class="formulario"  [formGroup]="form" method="post" (ngSubmit)="onSubmit()" >
+      <fieldset>
+        <legend>Datos personales</legend>
+        <div>
+  
+          <label for="nombre">Nombre</label>
+          <input type="text" placeholder="Ingrese su nombre"  id="nombre"   name="nombre" [formControl]="nombre">
+      
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" placeholder="Tu email" id="email"  required name="email" [formControl]="email">
+      
+        </div>
+        <div>
+          <label for="telefono" >Teléfono</label>
+          <input type="phone" placeholder="Tu Teléfono" id="" required name="telefono" [formControl]="telefono">
+        
+        </div>
+  
+       
+        <!--Aqui va el recaptcha-->
+        <div class="mensaje">
+          <div class="mensaje">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" [formControl]="mensaje" required></textarea>
+            <div [ngClass]="!submitted? 'hidden' : 'visible'" class="alerta">
+              <span class="alerta">{{responseMessage4}}</span>
+            </div>
+          </div>
+          <!--   <form>
+              <ngx-invisible-recaptcha #captchaElem [siteKey]="siteKey">
+              </ngx-invisible-recaptcha>
+            </form> -->
+          
+        </div>
+        <!--Aqui va el recaptcha-->
+       
+        <div class="contenedor-boton">
+          <input [disabled]="isLoading" type="submit" value="Enviar" class="btn btn-primary mt-2">
+        </div>
+       </fieldset>
+    </form>
+</div>

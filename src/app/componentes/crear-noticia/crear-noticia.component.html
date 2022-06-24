@@ -1,0 +1,119 @@
+
+<div class="clearfix" id="">
+
+</div>
+
+
+     <section class="center mt-5">
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear nueva noticia</button>
+            <button type="button" class="btn btn-warning" routerLink="/admin">Volver</button>
+          </div>
+        <h2 class="title-center">Noticias</h2>
+        <div class="services" >
+          
+            <div class="service"  *ngFor="let noticia of noticias, let i=index" >
+                  <div class="img-service">
+                    <img [src]='noticia.img' [alt]="noticia.nombre" loading="lazy"/>
+                  </div>   
+                  <h3 class="title-center">{{noticia.nombre}}</h3> 
+                  <p class="p-2 justify center">{{noticia.resumen}}</p>   
+                  <p class="p-2 justify center">{{noticia.info}}</p>    
+                  <div class="center">
+                    <button type="button" class="btn btn-warning" routerLink="/noticia/editar-noticia/{{noticia.id}}">Editar</button>   
+                    <button type="button" class="btn btn-danger" (click)="eliminar(noticia.id)" >Eliminar</button>   
+                  </div>
+                 
+                 
+            </div>
+
+     
+        </div>
+
+         <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+    <form class="formulario" #agregarformulario="ngForm" (ngSubmit)="agregarNoticia(agregarformulario)">
+      <h2>Agregar datos</h2>
+      
+    <fieldset>
+      <div>
+        <label for="actividad" >Titulo</label>
+       
+        <input type="text" 
+        name="nombre"
+        #nombre="ngModel"
+        [(ngModel)]="noticia.nombre"
+        [ngClass]=" { 'is-invalid': nombre.errors && nombre.touched} " required>
+        <div [hidden]="!nombre.errors?.required " class="invalid-feedback ">
+          Nombre Requerido
+        </div>
+       </div>  
+
+       <div>
+        <label for="resumen" >Resumen</label>
+       
+        <input type="text" 
+        name="resumen"
+        #resumen="ngModel"
+        [(ngModel)]="noticia.resumen"
+        [ngClass]=" { 'is-invalid': resumen.errors && resumen.touched} " required>
+        <div [hidden]="!nombre.errors?.required " class="invalid-feedback ">
+          Nombre Requerido
+        </div>
+       </div>  
+
+
+       
+
+      <div>
+        <label for="actividad" >Imagen</label>
+       
+        <input type="file"
+        (change)="cargarImg($event)" 
+        name="img"
+        #img="ngModel"
+        [(ngModel)]="noticia.img"
+        [ngClass]=" { 'is-invalid': img.errors && img.touched} " required>
+        <div [hidden]="!img.errors?.required " class="invalid-feedback ">
+          Imagen requerida
+        </div>
+      </div>  
+
+      <div>
+        <label for="lugar" name="lugar">Info</label>
+        <textarea id="info" 
+        name="info"
+        #info="ngModel"
+        [(ngModel)]="noticia.info"
+        [ngClass]=" { 'is-invalid': info.errors && info.touched} " required
+        required></textarea>
+        <div [hidden]="!info.errors?.required " class="invalid-feedback ">
+          Info Requerido
+      </div>
+      
+      </div> 
+    </fieldset>
+    <div class="modal-footer">
+      <button type="submit" class="btn-primary" data-dismiss="modal"> Guardar
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-floppy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2" />
+          <circle cx="12" cy="14" r="2" />
+          <polyline points="14 4 14 8 8 8 8 4" />
+        </svg>
+      </button>
+    </div>
+     </form>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+     </section>

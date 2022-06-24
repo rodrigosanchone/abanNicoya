@@ -1,0 +1,25 @@
+<div class="clearfix" id="contact">
+</div>
+
+<form class="formulario center login" (submit)="login()" >
+    <fieldset>
+      <legend>INGRESO DE USUARIOS</legend>
+      <div>
+
+        <label for="email">Email</label>
+        <input type="email" class="form-control border-input" name="email" [(ngModel)]="email" required>
+       
+      </div>
+      <div>
+        <label for="email">Password</label>
+        <input type="password" class="form-control border-input" name="password" [(ngModel)]="password" required>
+       
+      </div>
+     
+      <!--Aqui va el recaptcha-->
+      <div class="mt-5">
+        <input  type="submit" value="Ingresar" class="btn-primary mb-2">
+        <input  type="submit" value="Volver" class="btn-primary"  routerLink="/">
+      </div>
+      </fieldset>
+  </form>

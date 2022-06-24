@@ -1,0 +1,23 @@
+
+<div class="clearfix" id="notice"></div>
+
+<div class="center">
+  <h2 class="title-center">Noticias</h2>
+        <div class="services" >
+          
+            <div class="service mr-2"  *ngFor="let noticia of noticias, let i=index" >
+                  <div class="img-service">
+                    <img [src]="noticia.img" alt="noticia.nombre" loading="lazy"/>
+                  </div>   
+                  <h3 class="title-center mt-3">{{noticia.nombre}}</h3> 
+                  <p class="p-2 justify center">{{noticia.resumen}}</p>    
+                  
+                  <div class="text-center mb-1">
+                    <a routerLink="/noticia/{{noticia.id}}" class="btn btn-warning text-light">Leer</a>
+                  </div>
+                 
+            </div>
+
+     
+        </div>
+</div>
