@@ -64,7 +64,7 @@
         #resumen="ngModel"
         [(ngModel)]="noticia.resumen"
         [ngClass]=" { 'is-invalid': resumen.errors && resumen.touched} " required>
-        <div [hidden]="!nombre.errors?.required " class="invalid-feedback ">
+        <div [hidden]="!resumen.errors?.required " class="invalid-feedback ">
           Nombre Requerido
         </div>
        </div>  
